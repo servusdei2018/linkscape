@@ -1,2 +1,2 @@
 all:
-	go1.16.2 build -ldflags="-s -w"
+	go build -ldflags="-s -w"
