@@ -21,8 +21,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/servusdei2018/linkscape/internal/router"
 	"github.com/servusdei2018/linkscape/internal/db"
+	"github.com/servusdei2018/linkscape/internal/router"
 )
 
 var (
@@ -39,6 +39,8 @@ func init() {
 	flag.DurationVar(&frequency, "frequency", 1*time.Hour, "frequency between purge of expired urls")
 	flag.IntVar(&length, "length", 4, "length of shortened urls")
 	flag.StringVar(&bind, "bind", "0.0.0.0:8000", "bind address")
+
+	flag.Parse()
 }
 
 func main() {
@@ -63,7 +65,7 @@ func main() {
 		Addr: bind,
 		WriteTimeout: timeout,
 		ReadTimeout: timeout,
-	}	
+	}
 
 	log.Fatal(srv.ListenAndServe())
 }
