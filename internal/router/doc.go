@@ -15,5 +15,4 @@
 /*
 Package router manages the router used in Linkscape.
 */
-
 package router

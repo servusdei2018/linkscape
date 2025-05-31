@@ -26,8 +26,8 @@ import (
 
 var (
 	database *db.DB
-	gen *generator
-	router *mux.Router
+	gen      *generator
+	router   *mux.Router
 )
 
 func init() {

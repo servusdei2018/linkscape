@@ -15,5 +15,4 @@
 /*
 Package db manages the key-value database used in Linkscape.
 */
-
 package db

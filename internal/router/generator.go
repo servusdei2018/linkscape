@@ -18,11 +18,10 @@ import (
 	"sync"
 )
 
-
 // generator generates fixed length character sequences that fulfill
 // the regex [a-zA-X]{x} where x is the length.
 type generator struct {
-	carry int
+	carry   int
 	indices []int
 	sync.Mutex
 }
@@ -30,7 +29,7 @@ type generator struct {
 // newGenerator returns a new generator.
 func newGenerator(length int) *generator {
 	return &generator{
-		carry: 1,
+		carry:   1,
 		indices: make([]int, length),
 	}
 }
@@ -45,14 +44,14 @@ func (g *generator) Next() string {
 	}
 
 	g.carry = 1
-	for i := len(g.indices)-1; i >= 0; i-- {
+	for i := len(g.indices) - 1; i >= 0; i-- {
 		if g.carry == 0 {
 			break
 		}
-		
+
 		g.indices[i] += g.carry
 		g.carry = 0
-		
+
 		if g.indices[i] == arrlen {
 			g.carry = 1
 			g.indices[i] = 0
@@ -64,4 +63,5 @@ func (g *generator) Next() string {
 
 var arr = [...]string{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
 var arrlen = len(arr)
+
 func toChar(i int) string { return arr[i] }

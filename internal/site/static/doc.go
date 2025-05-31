@@ -15,5 +15,4 @@
 /*
 Package static exposes embedded static files used in Linkscape.
 */
-
 package static

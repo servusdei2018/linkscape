@@ -26,10 +26,10 @@ import (
 )
 
 var (
-	bind string
-	length int
-	timeout time.Duration
-	lifetime time.Duration
+	bind      string
+	length    int
+	timeout   time.Duration
+	lifetime  time.Duration
 	frequency time.Duration
 )
 
@@ -47,9 +47,9 @@ func main() {
 	// Configure database.
 	dbCfg := db.Config{
 		// Remember shortened URLs for one day.
-		Lifetime: 24*time.Hour,
+		Lifetime: 24 * time.Hour,
 		// Purge expired URLs every hour.
-		Frequency: 1*time.Hour,
+		Frequency: 1 * time.Hour,
 	}
 
 	// Configure router.
@@ -61,10 +61,10 @@ func main() {
 
 	// Configure HTTP server.
 	srv := &http.Server{
-		Handler: r,
-		Addr: bind,
+		Handler:      r,
+		Addr:         bind,
 		WriteTimeout: timeout,
-		ReadTimeout: timeout,
+		ReadTimeout:  timeout,
 	}
 
 	log.Fatal(srv.ListenAndServe())

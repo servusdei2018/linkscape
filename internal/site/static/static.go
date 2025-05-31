@@ -15,7 +15,7 @@
 package static
 
 import (
- _ "embed"
+	_ "embed"
 )
 
 //go:embed index.html
